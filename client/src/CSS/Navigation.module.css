@@ -1,0 +1,27 @@
+.div-navigation {
+  background-color: #283618;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 10%;
+  height: 50rem;
+  padding: 2.4rem;
+  margin-right: 1.6rem;
+}
+
+.nav-items {
+  list-style: none;
+}
+
+.tasks-link {
+  height: 2.5rem;
+  padding: 2.4rem;
+  background-color: red;
+}
+
+/* - Font sizes (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98 
+- Spacing system (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+*/ ;
