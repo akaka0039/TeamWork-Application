@@ -1,0 +1,36 @@
+.div-search-filter {
+  display: flex;
+  border: 0.1rem solid #283618;
+  padding: 1.6rem;
+  border-radius: 1.2rem;
+}
+
+.div-search-bar {
+  display: flex;
+  width: 20%;
+}
+
+.search-bar {
+  border: none;
+  outline: none;
+  width: 85%;
+}
+
+.div-filter {
+  display: flex;
+}
+
+.filter-text {
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+  font-size: 2rem;
+  /* text-align: center; */
+}
+
+/* color: #283618; */
+
+/* - Font sizes (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98 
+- Spacing system (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+*/ ;

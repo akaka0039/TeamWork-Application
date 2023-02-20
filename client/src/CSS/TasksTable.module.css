@@ -1,0 +1,47 @@
+.tasks-table {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 8rem;
+  border-collapse: collapse;
+}
+
+.tasks-table-header {
+  font-size: 2rem;
+  /* border: 0.1rem solid #282828; */
+}
+
+.heading-tasks-selector {
+  display: flex;
+  transform: translateY(80%);
+}
+
+.heading-task-name,
+.heading-members,
+.heading-date,
+.heading-status,
+.heading-priority {
+  text-align: left;
+  /* border: 0.1rem solid #283618; */
+  padding-top: 2.4rem;
+  padding-bottom: 2.4rem;
+}
+
+.heading-task-name {
+  padding-left: 0.4rem;
+}
+
+.tasks-table-header-row {
+  border: 0.1rem solid #282828;
+  border-top-left-radius: 1.2rem;
+}
+
+.empty-cell {
+  padding: 1.2rem;
+}
+/* color: #283618; */
+
+/* - Font sizes (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98 
+- Spacing system (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+*/ ;
