@@ -3,13 +3,16 @@ import FilterComponent from "./Components/FilterComponent";
 import Header from "./Components/Header";
 import Navigation from "./Components/Navigation";
 import TasksTable from "./Components/TasksTable";
+import Test from "./test/Test";
+
 function App() {
   return (
     <div className="App">
-      <Header></Header>
+      <Test />
+      {/* <Header></Header>
       <Navigation></Navigation>
       <FilterComponent></FilterComponent>
-      <TasksTable></TasksTable>
+      <TasksTable></TasksTable> */}
     </div>
   );
 }
