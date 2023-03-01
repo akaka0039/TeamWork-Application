@@ -1,23 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../CSS/TableRow.module.css";
 import { dateToStr } from "../Js/functions.js";
 import { menu } from "../Icons";
 import DropdownList from "./DropdownList";
 import ListOfMembers from "./ListOfMembers";
+import InvisibleDropdown from "./InvisibleDropdown";
 const TableRow = (props) => {
   const { task } = props;
-  console.log(task);
+  const [isHide, setIsHide] = useState(true);
+
   return (
-    <tr className={`${styles["table-row"]}`}>
+    <tr key={Math.random()} className={`${styles["table-row"]}`}>
       <td className={`${styles["cell-task-selector"]}`}>
-        <span>{menu}</span>
+        <span onClick={() => setIsHide((isHide) => !isHide)}>{menu}</span>
         <input
           type="checkbox"
           id="task.id"
           name="task.id"
           value={task.name}
         ></input>
+        <InvisibleDropdown
+          isHide={isHide}
+          options={{ listOfOptions: ["delete", "add"] }}
+        ></InvisibleDropdown>
       </td>
+
       <td className={`${styles["cell-task-name"]}`}>
         <input
           className={`${styles["input-task-name"]}`}

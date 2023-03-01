@@ -23,11 +23,13 @@ const TasksTable = (props) => {
           <th className={`${styles["heading-priority"]}`}>Priority</th>
         </tr>
       </thead>
-      <tr className={`${styles["empty-row"]}`}>
-        <td className={`${styles["empty-cell"]}`} colSpan={5}></td>
-      </tr>
-      <TableRow task={{ name: "task 1", deadline: "2023-02-19" }}></TableRow>
-      <TableRow task={{ name: "task 2", deadline: "2023-02-25" }}></TableRow>
+      <tbody>
+        <tr className={`${styles["empty-row"]}`}>
+          <td className={`${styles["empty-cell"]}`} colSpan={5}></td>
+        </tr>
+        <TableRow task={{ name: "task 1", deadline: "2023-02-19" }}></TableRow>
+        <TableRow task={{ name: "task 2", deadline: "2023-02-25" }}></TableRow>
+      </tbody>
     </table>
   );
 };

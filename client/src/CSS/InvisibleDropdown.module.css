@@ -1,0 +1,39 @@
+.div-drop-down {
+  color: #283618;
+  position: absolute;
+  z-index: 10;
+}
+
+.ul-drop-down {
+  list-style: none;
+  background-color: #fdfffa;
+  box-shadow: 0px 0px 18px 2px rgba(34, 34, 34, 0.579);
+  padding-top: 1.6rem;
+  padding-down: 1.6rem;
+}
+
+.ul-li {
+  /* border-bottom: 0.1rem solid #283618; */
+  padding: 1.6rem;
+
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  letter-spacing: 0.2rem;
+  /* box-shadow: inset 0px 0px 14px -7px #222222; */
+}
+
+.ul-li:hover {
+  background-color: rgba(34, 34, 34, 0.579);
+  cursor: pointer;
+}
+
+.hide {
+  display: none;
+}
+/* color: #283618; */
+
+/* - Font sizes (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98 
+- Spacing system (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+*/ ;

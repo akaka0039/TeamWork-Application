@@ -15,6 +15,8 @@
 
 .cell-task-selector {
   display: flex;
+  transform: translateY(15%);
+  position: relative;
 }
 .cell-task-name {
   padding-right: 0.4rem;

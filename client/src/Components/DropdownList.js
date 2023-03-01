@@ -9,8 +9,12 @@ const DropdownList = (props) => {
       name={props.name}
       id={dropDownDetail.id}
     >
-      {dropDownDetail.items.map((item) => {
-        return <option values={item}>{item}</option>;
+      {dropDownDetail.items.map((item, index) => {
+        return (
+          <option key={index} values={item}>
+            {item}
+          </option>
+        );
       })}
     </select>
   );

@@ -13,9 +13,9 @@ export const searchIcon = (
       r="84"
       fill="none"
       stroke="#000000"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="12"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="12"
     ></circle>
     <line
       x1="175.4"
@@ -24,9 +24,9 @@ export const searchIcon = (
       y2="224"
       fill="none"
       stroke="#000000"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="12"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="12"
     ></line>
   </svg>
 );
