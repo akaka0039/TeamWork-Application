@@ -2,14 +2,8 @@ import React, { useState } from "react";
 import TableRow from "../Components/TableRow";
 import styles from "../CSS/TasksTable.module.css";
 import { menu } from "../Icons";
-import AddTaskButton from "./AddTaskButton";
+
 const TasksTable = (props) => {
-  const [rowCount, setRowCount] = useState(false);
-
-  const changeRowCount = () => {
-    setRowCount((count) => (count = !count));
-  };
-
   const rows = props.rows.map((row, index) => (
     <TableRow
       taskName={row.taskName}
@@ -54,7 +48,7 @@ const TasksTable = (props) => {
         </tbody>
       </table>
       <div className={`${styles["div-add-task-button"]}`}>
-        <button onClick={changeRowCount}>Add Task</button>
+        <button className={`${styles["button"]}`}>Add Task</button>
       </div>
     </React.Fragment>
   );
