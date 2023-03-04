@@ -6,7 +6,6 @@ import DropdownList from "./DropdownList";
 import ListOfMembers from "./ListOfMembers";
 import InvisibleDropdown from "./InvisibleDropdown";
 const TableRow = (props) => {
-  const { task } = props;
   const [isHide, setIsHide] = useState(true);
 
   return (
@@ -15,9 +14,9 @@ const TableRow = (props) => {
         <span onClick={() => setIsHide((isHide) => !isHide)}>{menu}</span>
         <input
           type="checkbox"
-          id="task.id"
-          name="task.id"
-          value={task.name}
+          id={props.taskId}
+          name={props.taskName}
+          value={props.taskName}
         ></input>
         <InvisibleDropdown
           isHide={isHide}
@@ -29,7 +28,7 @@ const TableRow = (props) => {
         <input
           className={`${styles["input-task-name"]}`}
           type={"text"}
-          defaultValue={task.name}
+          defaultValue={props.taskName}
         ></input>
       </td>
       <td className={`${styles["cell-members"]}`}>
@@ -41,7 +40,7 @@ const TableRow = (props) => {
           type="date"
           min={dateToStr}
           max="9999-12-31"
-          defaultValue={task.deadline}
+          defaultValue={props.taskDate}
         ></input>
       </td>
       <td className={`${styles["cell-status"]}`}>

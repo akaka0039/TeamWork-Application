@@ -1,36 +1,62 @@
-import React from "react";
+import React, { useState } from "react";
 import TableRow from "../Components/TableRow";
 import styles from "../CSS/TasksTable.module.css";
 import { menu } from "../Icons";
+import AddTaskButton from "./AddTaskButton";
 const TasksTable = (props) => {
+  const [rowCount, setRowCount] = useState(false);
+
+  const changeRowCount = () => {
+    setRowCount((count) => (count = !count));
+  };
+
+  const rows = props.rows.map((row, index) => (
+    <TableRow
+      taskName={row.taskName}
+      taskId={row.taskId}
+      taskDate={row.taskDate}
+      taskStatus={row.taskStatus}
+      taskPriority={row.taskPriority}
+    ></TableRow>
+  ));
+
+  console.log(rows);
+
   return (
-    <table className={`${styles["tasks-table"]} `}>
-      <thead className={`${styles["tasks-table-header"]}`}>
-        <tr className={`${styles["tasks-table-header-row"]}`}>
-          <th className={`${styles["heading-tasks-selector"]}`}>
-            <span>{menu}</span>
-            <input
-              type="checkbox"
-              id="all-tasks"
-              name="all-tasks"
-              value="all-tasks-selected"
-            ></input>
-          </th>
-          <th className={`${styles["heading-task-name"]}`}>Task Name</th>
-          <th className={`${styles["heading-members"]}`}>Members</th>
-          <th className={`${styles["heading-date"]}`}>Date</th>
-          <th className={`${styles["heading-status"]}`}>Status</th>
-          <th className={`${styles["heading-priority"]}`}>Priority</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr className={`${styles["empty-row"]}`}>
-          <td className={`${styles["empty-cell"]}`} colSpan={5}></td>
-        </tr>
-        <TableRow task={{ name: "task 1", deadline: "2023-02-19" }}></TableRow>
-        <TableRow task={{ name: "task 2", deadline: "2023-02-25" }}></TableRow>
-      </tbody>
-    </table>
+    <React.Fragment>
+      <table className={`${styles["tasks-table"]} `}>
+        <thead className={`${styles["tasks-table-header"]}`}>
+          <tr className={`${styles["tasks-table-header-row"]}`}>
+            <th className={`${styles["heading-tasks-selector"]}`}>
+              <span>{menu}</span>
+              <input
+                type="checkbox"
+                id="all-tasks"
+                name="all-tasks"
+                value="all-tasks-selected"
+              ></input>
+            </th>
+            <th className={`${styles["heading-task-name"]}`}>Task Name</th>
+            <th className={`${styles["heading-members"]}`}>Members</th>
+            <th className={`${styles["heading-date"]}`}>Date</th>
+            <th className={`${styles["heading-status"]}`}>Status</th>
+            <th className={`${styles["heading-priority"]}`}>Priority</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            <tr className={`${styles["empty-row"]}`}>
+              <td className={`${styles["empty-cell"]}`} colSpan={5}></td>
+            </tr>
+          }
+
+          {rows}
+        </tbody>
+      </table>
+      <div className={`${styles["div-add-task-button"]}`}>
+        <button onClick={changeRowCount}>Add Task</button>
+      </div>
+    </React.Fragment>
   );
 };
 

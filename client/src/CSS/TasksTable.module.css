@@ -1,7 +1,10 @@
-.tasks-table {
+.tasks-table,
+.div-add-task-button {
   width: 80%;
   margin: 0 auto;
   margin-top: 8rem;
+}
+.tasks-table {
   border-collapse: collapse;
 }
 
