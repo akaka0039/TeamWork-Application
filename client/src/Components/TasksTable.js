@@ -4,15 +4,43 @@ import styles from "../CSS/TasksTable.module.css";
 import { menu } from "../Icons";
 
 const TasksTable = (props) => {
-  const rows = props.rows.map((row, index) => (
-    <TableRow
-      taskName={row.taskName}
-      taskId={row.taskId}
-      taskDate={row.taskDate}
-      taskStatus={row.taskStatus}
-      taskPriority={row.taskPriority}
-    ></TableRow>
-  ));
+  const [totalTasks, setTotalTasks] = useState(props.rows.totalTasks);
+  const rows = props.rows.data;
+
+  const rowsArr = [];
+
+  for (let i = 0; i < totalTasks; i++) {
+    if (!rows[i]) {
+      console.log(rows[i], "null ? ");
+      rowsArr.push(<TableRow></TableRow>);
+    } else if (Object.keys(rows[i]).length !== 1)
+      rowsArr.push(
+        <TableRow
+          taskName={rows[i].taskName}
+          taskId={rows[i].taskId}
+          taskDate={rows[i].taskDate}
+          taskStatus={rows[i].taskStatus}
+          taskPriority={rows[i].taskPriority}
+        ></TableRow>
+      );
+  }
+
+  const addRow = () => {
+    setTotalTasks((total) => total + 1);
+  };
+
+  // .map((row, index) => {
+  //   if (Object.keys(row).length !== 1)
+  //     return (
+  //       <TableRow
+  //         taskName={row.taskName}
+  //         taskId={row.taskId}
+  //         taskDate={row.taskDate}
+  //         taskStatus={row.taskStatus}
+  //         taskPriority={row.taskPriority}
+  //       ></TableRow>
+  //     );
+  // });
 
   console.log(rows);
 
@@ -44,11 +72,13 @@ const TasksTable = (props) => {
             </tr>
           }
 
-          {rows}
+          {rowsArr}
         </tbody>
       </table>
       <div className={`${styles["div-add-task-button"]}`}>
-        <button className={`${styles["button"]}`}>Add Task</button>
+        <button className={`${styles["button"]}`} onClick={addRow}>
+          Add Task
+        </button>
       </div>
     </React.Fragment>
   );
