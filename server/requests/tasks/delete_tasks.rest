@@ -1,0 +1,10 @@
+# update ID to test live 
+DELETE http://localhost:3001/api/tasks/6424ca99888fee5bfb40f1a1
+Content-Type: application/json
+
+###
+
+# 400 Bad Request - non-existant id
+DELETE http://localhost:3001/api/tasks/impossible_id
+Content-Type: application/json
+

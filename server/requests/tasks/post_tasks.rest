@@ -1,0 +1,44 @@
+POST  http://localhost:3001/api/tasks
+Content-Type: application/json
+
+{
+  "content": {
+    "title": "Task 1",
+    "memberId": "123"
+  }
+} 
+
+###
+
+POST  http://localhost:3001/api/tasks
+Content-Type: application/json
+
+# 400 Bad Request because no content
+{
+  "title": "Task 1",
+  "memberId": "123"
+} 
+
+###
+
+POST  http://localhost:3001/api/tasks
+Content-Type: application/json
+
+# 400 Bad Request validation fail - memberId
+{
+  "content": {
+    "title": "Task 1"
+  }
+}
+
+###
+
+POST  http://localhost:3001/api/tasks
+Content-Type: application/json
+
+# 400 Bad Request validation fail - title
+{
+  "content": {
+    "memberId": "321"
+  }
+}

@@ -1,0 +1,20 @@
+# check ID exists
+PUT  http://localhost:3001/api/tasks/6424e0450e4c2d65af614b3d
+Content-Type: application/json
+
+{
+  "content": {
+    "memberId": "234"
+  }
+} 
+
+###
+
+# 400 Bad Request - non-existent id
+# - check id doesn't exist!
+PUT  http://localhost:3001/api/tasks/11111111111111
+Content-Type: application/json
+
+{
+  "memberId": "234"
+} 
