@@ -1,7 +1,3 @@
-import dotenv from "dotenv";
-dotenv.config();
-import mongoose from "mongoose";
-
 import app from "./app.js";
 import * as config from "./utils/config.js";
 import * as logger from "./utils/logger.js";
