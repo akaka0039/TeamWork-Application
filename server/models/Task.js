@@ -6,16 +6,14 @@ const TaskSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    memberId: {
-      type: Array,
+    taskDate: {
+      type: String,
     },
     status: {
       type: String,
-      required: true,
     },
     priority: {
       type: String,
-      required: true,
     },
   },
 

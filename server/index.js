@@ -6,7 +6,6 @@ import cors from "cors";
 import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/users.js";
 import taskRoutes from "./routes/tasks.js";
-// var router = express.Router();
 
 /* Routes */
 
@@ -21,7 +20,7 @@ const PORT = process.env.PORT || 6001;
 /* Route */
 app.use("/auth", authRoutes);
 app.use("/api/users", userRoutes);
-app.use("/api/posts", taskRoutes);
+app.use("/api/tasks", taskRoutes);
 
 mongoose
   .set("strictQuery", true)
