@@ -1,48 +1,62 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TableRow from "../Components/TableRow";
 import styles from "../CSS/TasksTable.module.css";
 import { menu } from "../Icons";
 
+const taskData = [
+  {
+    taskId: 1,
+    taskName: "task 1",
+    taskDate: "2023/03/02",
+    taskStatus: "completed",
+    taskPriority: "important",
+  },
+  {
+    taskId: 2,
+    taskName: "task 2",
+    taskDate: "2023/03/06",
+    taskStatus: "completed",
+    taskPriority: "important",
+  },
+  {
+    taskId: 3,
+    taskName: "task 3",
+    taskDate: "2023/03/010",
+    taskStatus: "completed",
+    taskPriority: "important",
+  },
+];
 const TasksTable = (props) => {
-  const [totalTasks, setTotalTasks] = useState(props.rows.totalTasks);
-  const rows = props.rows.data;
+  const [tasksList, setTasksList] = useState(taskData);
+  const [newTask, setNewTask] = useState(false);
 
-  const rowsArr = [];
+  useEffect(() => {}, []);
 
-  for (let i = 0; i < totalTasks; i++) {
-    if (!rows[i]) {
-      console.log(rows[i], "null ? ");
-      rowsArr.push(<TableRow></TableRow>);
-    } else if (Object.keys(rows[i]).length !== 1)
-      rowsArr.push(
+  const rowsArray = tasksList
+    .map((row) => {
+      return (
         <TableRow
-          taskName={rows[i].taskName}
-          taskId={rows[i].taskId}
-          taskDate={rows[i].taskDate}
-          taskStatus={rows[i].taskStatus}
-          taskPriority={rows[i].taskPriority}
+          taskName={row.taskName}
+          taskId={row.taskId}
+          taskDate={row.taskDate}
+          taskStatus={row.taskStatus}
+          taskPriority={row.taskPriority}
         ></TableRow>
       );
-  }
+    })
+    .concat(
+      newTask ? (
+        <TableRow>
+          taskName="" taskId="" taskDate="" taskStatus="" taskPriority=""
+        </TableRow>
+      ) : (
+        []
+      )
+    );
 
   const addRow = () => {
-    setTotalTasks((total) => total + 1);
+    setNewTask((val) => !val);
   };
-
-  // .map((row, index) => {
-  //   if (Object.keys(row).length !== 1)
-  //     return (
-  //       <TableRow
-  //         taskName={row.taskName}
-  //         taskId={row.taskId}
-  //         taskDate={row.taskDate}
-  //         taskStatus={row.taskStatus}
-  //         taskPriority={row.taskPriority}
-  //       ></TableRow>
-  //     );
-  // });
-
-  console.log(rows);
 
   return (
     <React.Fragment>
@@ -71,8 +85,7 @@ const TasksTable = (props) => {
               <td className={`${styles["empty-cell"]}`} colSpan={5}></td>
             </tr>
           }
-
-          {rowsArr}
+          {rowsArray}
         </tbody>
       </table>
       <div className={`${styles["div-add-task-button"]}`}>
