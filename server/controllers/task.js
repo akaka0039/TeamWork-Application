@@ -12,7 +12,7 @@ export const createTask = async (req, res) => {
   }
 };
 
-/* update Task */
+// /* update Task */
 export const updateTask = async (req, res) => {
   try {
     const task = await Post.findById(req.params.id);
@@ -48,7 +48,7 @@ export const deleteTask = async (req, res) => {
   }
 };
 
-/* get a post */
+// /* get a post */
 export const getTask = async (req, res) => {
   try {
     const task = await Tost.findById(req.params.id);

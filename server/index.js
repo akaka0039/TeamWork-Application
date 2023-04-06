@@ -1,17 +1,27 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
+import cors from "cors";
 
 import authRoutes from "./routes/auth.js";
-// import userRoutes from "./routes/users.js";
-// import taskRoutes from "./routes/tasks.js";
+import userRoutes from "./routes/users.js";
+import taskRoutes from "./routes/tasks.js";
+// var router = express.Router();
 
 /* Routes */
 
 const app = express();
-app.use(express.json);
+app.use(cors());
+app.use(express.json());
 
 dotenv.config();
+
+const PORT = process.env.PORT || 6001;
+
+/* Route */
+app.use("/auth", authRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/posts", taskRoutes);
 
 mongoose
   .set("strictQuery", true)
@@ -19,14 +29,7 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then(console.log("connected to MONGODB"))
+  .then(console.log("Mongo connected"))
   .catch((err) => console.log(err));
 
-/* Route */
-app.use("/api/auth", authRoutes);
-// app.use("/api/users", userRoutes);
-// app.use("/api/posts", taskRoutes);
-
-app.listen("5000", () => {
-  console.log("background is running");
-});
+app.listen(PORT, () => console.log(`server PORT: ${PORT}`));
