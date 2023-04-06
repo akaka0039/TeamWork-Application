@@ -2,7 +2,7 @@ import "./App.css";
 import FilterComponent from "./Components/FilterComponent";
 import Header from "./Components/Header";
 import Navigation from "./Components/Navigation";
-import TableRow from "./Components/TableRow";
+// import TableRow from "./Components/TableRow";
 import TasksTable from "./Components/TasksTable";
 
 const taskData = {
