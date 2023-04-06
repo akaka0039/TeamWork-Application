@@ -15,9 +15,9 @@ export const createTask = async (req, res) => {
 // /* update Task */
 export const updateTask = async (req, res) => {
   try {
-    const task = await Post.findById(req.params.id);
+    const task = await Task.findById(req.params.id);
     try {
-      const updatedTask = await task.findByIdAndUpdate(
+      const updatedTask = await Task.findByIdAndUpdate(
         req.params.id,
         {
           $set: req.body,
@@ -29,29 +29,29 @@ export const updateTask = async (req, res) => {
       res.status(500).json(err);
     }
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json("no match id...");
   }
 };
 
 /* delete post */
 export const deleteTask = async (req, res) => {
   try {
-    const task = await task.findById(req.params.id);
+    const task = await Task.findById(req.params.id);
     try {
-      await post.delete();
-      res.status(200).json("Tost has been deleted...");
+      await task.delete();
+      res.status(200).json("Task has been deleted...");
     } catch (err) {
       res.status(500).json(err);
     }
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json("no match id or already deleted ");
   }
 };
 
 // /* get a post */
 export const getTask = async (req, res) => {
   try {
-    const task = await Tost.findById(req.params.id);
+    const task = await Task.findById(req.params.id);
     res.status(200).json(task);
   } catch (err) {
     res.status(500).json(err);
