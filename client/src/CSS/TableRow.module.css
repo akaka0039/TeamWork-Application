@@ -1,0 +1,63 @@
+.table-row {
+  font-size: 1.8rem;
+  color: #fdfffa;
+  border-bottom: 0.3rem solid #fdfffa;
+  /* height: 5rem; */
+}
+.cell-task-name,
+.cell-members,
+.cell-date,
+.cell-status,
+.cell-priority {
+  padding: 0.4rem;
+  text-align: left;
+}
+
+.cell-task-selector {
+  display: flex;
+  transform: translateY(15%);
+  /* position: relative; */
+  /* z-index: 5; */
+}
+.cell-task-name {
+  padding-right: 0.4rem;
+  background-color: #283618;
+  color: inherit;
+  width: 20%;
+}
+.cell-members {
+  /* width: %; */
+  background-color: #b7a633;
+  display: flex;
+  justify-content: space-around;
+}
+.cell-date {
+  background-color: #49551f;
+}
+
+.cell-status {
+  background-color: #b17533;
+}
+
+.cell-priority {
+  background-color: #965011;
+}
+
+.input-task-name,
+.input-date {
+  outline: none;
+  border: none;
+  height: 100%;
+  width: 100%;
+  font-size: inherit;
+  background-color: inherit;
+  color: inherit;
+}
+
+/* color: #283618; */
+
+/* - Font sizes (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98 
+- Spacing system (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+*/ ;

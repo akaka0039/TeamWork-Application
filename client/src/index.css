@@ -18,3 +18,26 @@ body {
   max-width: 95%;
   margin: 0 auto;
 }
+
+.center-2 {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.margin-bottom {
+  margin-bottom: 6.5rem;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+}
+
+.hide {
+  display: none;
+  /* opacity: 0;
+  visibility: hidden;
+  pointer-events: none; */
+}

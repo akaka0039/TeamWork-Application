@@ -1,23 +1,44 @@
-.div-navigation {
+.navigation {
   background-color: #283618;
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 10%;
-  height: 50rem;
-  padding: 2.4rem;
-  margin-right: 1.6rem;
+  /* max-width: 5%; */
+  width: 7.2rem;
+  height: 37.5rem;
+  position: absolute;
+  /* padding: 1.2rem; */
+  margin: 1.2rem;
+  border-radius: 1.6rem;
+  box-shadow: 0 0 1.5rem 0.3rem #28361894;
 }
 
 .nav-items {
   list-style: none;
+  width: 100%;
+}
+
+.tasks-link,
+.people-link {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  height: 6rem;
+  width: 100%;
+  line-height: 6rem;
+  /* padding: 2.4rem; */
+  background-color: red;
+  text-align: center;
 }
 
 .tasks-link {
-  height: 2.5rem;
-  padding: 2.4rem;
-  background-color: red;
+  background-color: #5e7543;
+  box-shadow: 0 0 1.5rem 0 #9ebd7c78;
+}
+
+.people-link {
+  background-color: #384a23;
 }
 
 /* - Font sizes (px)
