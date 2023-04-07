@@ -44,20 +44,22 @@ const TableRow = (props) => {
         ></input>
       </td>
       <td className={`${styles["cell-status"]}`}>
-        <DropdownList
+        {/* <DropdownList
           dropDownDetail={{
             id: "status",
             items: ["completed", "progressing", "unassigned"],
           }}
-        ></DropdownList>
+        ></DropdownList> */}
+        {props.taskStatus}
       </td>
       <td className={`${styles["cell-priority"]}`}>
-        <DropdownList
+        {/* <DropdownList
           dropDownDetail={{
             id: "status",
             items: ["most important", "normal", "least important"],
           }}
-        ></DropdownList>
+        ></DropdownList> */}
+        {props.taskPriority}
       </td>
     </tr>
   );
