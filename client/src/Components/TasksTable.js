@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import TableRow from "../Components/TableRow";
 import styles from "../CSS/TasksTable.module.css";
 import { menu } from "../Icons";
+import axios from "axios";
 
 const taskData = [
   {
@@ -27,20 +28,27 @@ const taskData = [
   },
 ];
 const TasksTable = (props) => {
+  const [task, setTask] = useState([]);
   const [tasksList, setTasksList] = useState(taskData);
   const [newTask, setNewTask] = useState(false);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const getTask = async () => {
+      const res = await axios.get(`http://localhost:3001/api/tasks`);
+      setTask(res.data);
+    };
+    getTask();
+  }, []);
 
-  const rowsArray = tasksList
+  const rowsArray = task
     .map((row) => {
       return (
         <TableRow
-          taskName={row.taskName}
+          taskName={row.title}
           taskId={row.taskId}
           taskDate={row.taskDate}
-          taskStatus={row.taskStatus}
-          taskPriority={row.taskPriority}
+          taskStatus={row.status}
+          taskPriority={row.priority}
         ></TableRow>
       );
     })
@@ -79,14 +87,7 @@ const TasksTable = (props) => {
             <th className={`${styles["heading-priority"]}`}>Priority</th>
           </tr>
         </thead>
-        <tbody>
-          {
-            <tr className={`${styles["empty-row"]}`}>
-              <td className={`${styles["empty-cell"]}`} colSpan={5}></td>
-            </tr>
-          }
-          {rowsArray}
-        </tbody>
+        <tbody>{rowsArray}</tbody>
       </table>
       <div className={`${styles["div-add-task-button"]}`}>
         <button className={`${styles["button"]}`} onClick={addRow}>
