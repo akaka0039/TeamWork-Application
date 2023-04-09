@@ -3,6 +3,7 @@ import FilterComponent from "./Components/FilterComponent";
 import Header from "./Components/Header";
 import Navigation from "./Components/Navigation";
 import TasksTable from "./Components/TasksTable";
+import TailTest from "./tailwindCss_test/test";
 
 const taskData = {
   data: [
@@ -37,6 +38,7 @@ function App() {
       <Navigation></Navigation>
       <FilterComponent></FilterComponent>
       <TasksTable rows={taskData}></TasksTable>
+      <TailTest />
     </div>
   );
 }
