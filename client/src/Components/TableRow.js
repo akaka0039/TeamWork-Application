@@ -19,8 +19,8 @@ const TableRow = (props) => {
   });
 
   return (
-    <tr key={Math.random()} className={`${styles["table-row"]}`}>
-      <td className={`${styles["cell-task-selector"]}`}>
+    <tr key={Math.random()} className={styles["table-row"]}>
+      <td className={styles["cell-task-selector"]}>
         <span onClick={() => setIsHide((isHide) => !isHide)}>{menu}</span>
         <input
           type="checkbox"
@@ -41,9 +41,9 @@ const TableRow = (props) => {
         id={props._id}
       ></InvisibleDropdown>
 
-      <td className={`${styles["cell-task-name"]}`}>
+      <td className={styles["cell-task-name"]}>
         <input
-          className={`${styles["input-task-name"]}`}
+          className={styles["input-task-name"]}
           type={"text"}
           value={props.taskName}
           onChange={(e) =>
@@ -56,14 +56,14 @@ const TableRow = (props) => {
       </td>
 
       {/* member */}
-      <td className={`${styles["cell-members"]}`}>
+      <td className={styles["cell-members"]}>
         <ListOfMembers></ListOfMembers>
       </td>
 
       {/* taskDate */}
-      <td className={`${styles["cell-date"]}`}>
+      <td className={styles["cell-date"]}>
         <input
-          className={`${styles["input-date"]}`}
+          className={styles["input-date"]}
           type="date"
           min={props.taskDate}
           max="9999-12-31"
@@ -78,7 +78,7 @@ const TableRow = (props) => {
       </td>
 
       {/* taskStatus */}
-      <td className={`${styles["cell-status"]}`}>
+      <td className={styles["cell-status"]}>
         {/* <DropdownList
           dropDownDetail={{
             id: "status",
@@ -92,14 +92,14 @@ const TableRow = (props) => {
               status: e.target.value,
             })
           }
-          className={`${styles["input-date"]}`}
+          className={styles["input-date"]}
           type="text"
           value={props.status}
         ></input>
       </td>
 
       {/* taskPriority */}
-      <td className={`${styles["cell-priority"]}`}>
+      <td className={styles["cell-priority"]}>
         {/* <DropdownList
           dropDownDetail={{
             id: "status",
@@ -113,7 +113,7 @@ const TableRow = (props) => {
               priority: e.target.value,
             })
           }
-          className={`${styles["input-date"]}`}
+          className={styles["input-date"]}
           type="text"
           value={props.priority}
         ></input>

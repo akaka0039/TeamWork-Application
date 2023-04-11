@@ -33,28 +33,19 @@ const TasksTable = () => {
     setTask(res.data);
   };
 
-  const rowsArray = task
-    .map((row) => {
-      return (
-        <TableRow
-          _id={row._id}
-          taskName={row.taskName}
-          taskId={row.taskId}
-          taskDate={row.taskDate}
-          status={row.status}
-          priority={row.priority}
-        ></TableRow>
-      );
-    })
-    .concat(
-      newTask ? (
-        <TableRow>
-          taskName="" taskId="" taskDate="" taskStatus="" taskPriority=""
-        </TableRow>
-      ) : (
-        []
-      )
+  const rowsArray = task.map((row) => {
+    return (
+      <TableRow
+        _id={row._id}
+        key={row.id}
+        taskName={row.taskName}
+        taskId={row.taskId}
+        taskDate={row.taskDate}
+        status={row.status}
+        priority={row.priority}
+      ></TableRow>
     );
+  });
 
   const onSubmit = (ev) => {
     ev.preventDefault();
@@ -68,15 +59,15 @@ const TasksTable = () => {
       return;
     }
     axios.put(`http://localhost:3001/api/tasks`, newTask);
-    window.location.reload();
+    getTask();
   };
 
   return (
     <React.Fragment>
-      <table className={`${styles["tasks-table"]} `}>
-        <thead className={`${styles["tasks-table-header"]}`}>
-          <tr className={`${styles["tasks-table-header-row"]}`}>
-            <th className={`${styles["heading-tasks-selector"]}`}>
+      <table className={styles["tasks-table"]}>
+        <thead className={styles["tasks-table-header"]}>
+          <tr className={styles["tasks-table-header-row"]}>
+            <th className={styles["heading-tasks-selector"]}>
               <span>{menu}</span>
               <input
                 type="checkbox"
@@ -85,11 +76,11 @@ const TasksTable = () => {
                 value="all-tasks-selected"
               ></input>
             </th>
-            <th className={`${styles["heading-task-name"]}`}>Task Name</th>
-            <th className={`${styles["heading-members"]}`}>Members</th>
-            <th className={`${styles["heading-date"]}`}>Date</th>
-            <th className={`${styles["heading-status"]}`}>Status</th>
-            <th className={`${styles["heading-priority"]}`}>Priority</th>
+            <th className={styles["heading-task-name"]}>Task Name</th>
+            <th className={styles["heading-members"]}>Members</th>
+            <th className={styles["heading-date"]}>Date</th>
+            <th className={styles["heading-status"]}>Status</th>
+            <th className={styles["heading-priority"]}>Priority</th>
           </tr>
         </thead>
         <tbody>{rowsArray}</tbody>
@@ -97,29 +88,30 @@ const TasksTable = () => {
 
       {/* add table */}
       <form onSubmit={onSubmit}>
-        <table className={`${styles["tasks-table"]} `}>
-          <thead className={`${styles["tasks-table-header"]}`}>
-            <tr className={`${styles["tasks-table-header-row"]}`}>
-              <th className={`${styles["heading-tasks-selector"]}`}>
+        <table className={styles["tasks-table"]}>
+          <thead className={styles["tasks-table-header"]}>
+            <tr className={styles["tasks-table-header-row"]}>
+              <th className={styles["heading-tasks-selector"]}>
                 <span>{menu}</span>
                 <input
+                  // make controlled component
                   type="checkbox"
                   id="all-tasks"
                   name="all-tasks"
                   value="all-tasks-selected"
                 ></input>
               </th>
-              <th className={`${styles["heading-task-name"]}`}>Task Name</th>
-              <th className={`${styles["heading-members"]}`}>Members</th>
-              <th className={`${styles["heading-date"]}`}>Date</th>
-              <th className={`${styles["heading-status"]}`}>Status</th>
-              <th className={`${styles["heading-priority"]}`}>Priority</th>
+              <th className={styles["heading-task-name"]}>Task Name</th>
+              <th className={styles["heading-members"]}>Members</th>
+              <th className={styles["heading-date"]}>Date</th>
+              <th className={styles["heading-status"]}>Status</th>
+              <th className={styles["heading-priority"]}>Priority</th>
             </tr>
           </thead>
 
           <tbody>
             <tr>
-              <td className={`${styles["heading-task-name"]}`}></td>
+              <td className={styles["heading-task-name"]}></td>
               <td>
                 <input
                   onChange={(e) =>
@@ -128,7 +120,7 @@ const TasksTable = () => {
                       taskName: e.target.value,
                     })
                   }
-                  className={`${stylesRow["input-task-name"]}`}
+                  className={stylesRow["input-task-name"]}
                   type={"text"}
                   defaultValue="taskName"
                 ></input>
@@ -142,7 +134,7 @@ const TasksTable = () => {
                       taskDate: e.target.value,
                     })
                   }
-                  className={`${stylesRow["input-task-name"]}`}
+                  className={stylesRow["input-task-name"]}
                   type={"text"}
                   defaultValue="20230405"
                 ></input>
@@ -155,7 +147,7 @@ const TasksTable = () => {
                       status: e.target.value,
                     })
                   }
-                  className={`${stylesRow["input-task-name"]}`}
+                  className={stylesRow["input-task-name"]}
                   type={"text"}
                   defaultValue="nomal"
                 ></input>
@@ -169,7 +161,7 @@ const TasksTable = () => {
                     })
                   }
                   name="priority"
-                  className={`${stylesRow["input-task-name"]}`}
+                  className={stylesRow["input-task-name"]}
                   type={"text"}
                   defaultValue="nomal"
                 ></input>
@@ -177,7 +169,7 @@ const TasksTable = () => {
             </tr>
           </tbody>
         </table>
-        <button className={`${styles["button"]}`}>Add Task</button>
+        <button className={styles["button"]}>Add Task</button>
       </form>
     </React.Fragment>
   );

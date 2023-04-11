@@ -35,17 +35,11 @@ const InvisibleDropdown = (props) => {
         props.isHide ? `${styles["hide"]}` : ""
       }`}
     >
-      <ul className={`${styles["ul-drop-down"]}`}>
-        <button
-          onClick={() => onUpdate(props)}
-          className={`${styles["ul-li"]}`}
-        >
+      <ul className={styles["ul-drop-down"]}>
+        <button onClick={() => onUpdate(props)} className={styles["ul-li"]}>
           Update
         </button>
-        <button
-          onClick={() => onDelete(props.id)}
-          className={`${styles["ul-li"]}`}
-        >
+        <button onClick={() => onDelete(props.id)} className={styles["ul-li"]}>
           Delete
         </button>
       </ul>
