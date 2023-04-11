@@ -1,11 +1,28 @@
-import React from "react";
 import styles from "../CSS/ListOfMembers.module.css";
-const ListOfMembers = (props) => {
-  const { members } = props;
-  return members.items.map((item, index) => {
+
+const ListOfMembers = () => {
+  // user_data
+  const props = {
+    data: [
+      {
+        id: 1,
+        members: "G",
+      },
+      {
+        id: 2,
+        members: "E",
+      },
+      {
+        id: 3,
+        members: "C",
+      },
+    ],
+  };
+  const { data } = props;
+  return data.map((item) => {
     return (
-      <div key={index} className={styles["member"]}>
-        <span>G</span>
+      <div key={item.id} className={styles["member"]}>
+        <span>{item.members}</span>
       </div>
     );
   });

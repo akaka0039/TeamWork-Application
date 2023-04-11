@@ -49,7 +49,6 @@ export const getUser = async (req, res) => {
 };
 
 export const getAllUser = async (req, res) => {
-  console.log("pass");
   try {
     const userArray = await User.find().lean();
     res.status(200).json({ success: true, userArray });
